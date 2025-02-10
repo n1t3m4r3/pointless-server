@@ -5,7 +5,7 @@ def check_jee_mains_result(url, webhook_url, interval=30):
     """Checks the JEE Mains result website and notifies via Discord webhook when available."""
     while True:
         try:
-            response = requests.get(url, timeout=30)
+            response = requests.get(url, timeout=5)
             if response.status_code != 500:
                     notify_discord(webhook_url, "website change")
                     time.sleep(3000)
