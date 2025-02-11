@@ -30,5 +30,5 @@ def notify_discord(webhook_url, message):
 
 if __name__ == "__main__":
     JEE_MAINS_URL = "https://jeemain.nta.nic.in/results-for-jeemain-2025-session-1/link"
-    DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1338562729916760146/gTlZwdMtUr0aMzF0VDCrkNX9k-WYxvLU9cYEQMFaaOEfLlQBbLytj40eBQiuFS3hdTXy"
+    DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/912965858198949918/LEjxLyA9OP51xgRYqSufxCDCTi-6zvOXmqfoUq0_YF0Gp68CcBEmzoAcJnA8ulpzfXYT"
     check_jee_mains_result(JEE_MAINS_URL, DISCORD_WEBHOOK_URL)
