@@ -1,7 +1,7 @@
 import requests
 import time
 
-def check_jee_mains_result(url, webhook_url, interval=30):
+def check_jee_mains_result(url, webhook_url, interval=10):
     """Checks the JEE Mains result website and notifies via Discord webhook when available."""
     while True:
         try:
