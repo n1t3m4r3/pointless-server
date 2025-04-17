@@ -1,15 +1,16 @@
 import requests
 import time
+from difflib import *
 
 def check_jee_mains_result(url, webhook_url, interval=30):
-    x1 = requests.get(url, timeout=7)
-    x2 = x1.text
+    oldtxt = requests.get(url, timeout=7).text
     while True:
         try:
-            y1 = requests.get(url, timeout=7)
-            y2 = y1.text
-            if x2 != y2:
-                    notify_discord(webhook_url, "jee website change")
+            newtxt = requests.get(url, timeout=7).text
+            if oldtxt != newtxt:
+                    difftxt = ''.join(ndiff(oldtxt.splitlines(keepends=True),newtxt.splitlines(keepends=True)))
+                    notify_discord(webhook_url, "The jee website has changed. Delta:\n```\n"+difftxt+'```\n')
+                    oldtxt = newtxt
                     time.sleep(60)
             else:
                 print("no change")
