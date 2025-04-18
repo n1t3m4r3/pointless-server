@@ -1,6 +1,10 @@
 import requests
 import time
 from difflib import *
+with open('whook.txt','r') as f:
+    t = f.readlines()
+    wid = t[0]
+    wkey = t[1]
 
 def check_jee_mains_result(url, webhook_url, interval=30):
     oldtxt = requests.get(url, timeout=7).text
@@ -32,6 +36,6 @@ def notify_discord(webhook_url, message):
         print(f"Failed to send Discord notification: {e}")
 
 if __name__ == "__main__":
+    DISCORD_WEBHOOK_URL = f"https://discord.com/api/webhooks/{wid}/{wkey}"
     JEE_MAINS_URL = "https://jeemain.nta.nic.in/public-notices/"
-    DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1338562729916760146/gTlZwdMtUr0aMzF0VDCrkNX9k-WYxvLU9cYEQMFaaOEfLlQBbLytj40eBQiuFS3hdTXy"
     check_jee_mains_result(JEE_MAINS_URL, DISCORD_WEBHOOK_URL)
