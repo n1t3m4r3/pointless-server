@@ -36,6 +36,6 @@ def notify_discord(webhook_url, message):
         print(f"Failed to send Discord notification: {e}")
 
 if __name__ == "__main__":
-    JEE_MAINS_URL = "https://jeemain.nta.nic.in/#1648447930282-deb48cc0-95ec"
     DISCORD_WEBHOOK_URL = f"https://discord.com/api/webhooks/{wid}/{wkey}"
+    JEE_MAINS_URL = "https://jeemain.nta.nic.in/public-notices/"
     check_jee_mains_result(JEE_MAINS_URL, DISCORD_WEBHOOK_URL)
